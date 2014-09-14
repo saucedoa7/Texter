@@ -13,7 +13,7 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
 
-        // https://rest.nexmo.com/sms/json?api_key=2772306a&api_secret=c80e2d4c&from=12165045273&to=%@&text=%@
+        // C was used for learning
 
         char phoneNumber[11];
         char textMessage[200];
@@ -32,12 +32,9 @@ int main(int argc, const char * argv[])
 
         if (([number length] < 9)) {
 
-            NSLog(@"ERROR: Phone number must be 11 numbers long");
+            NSLog(@"ERROR: Phone number must be more than 9 numbers long");
 
         } else {
-
-            NSLog(@"Number!!! %@", number);
-            NSLog(@"Message!! %@", message);
 
             NSString *urlString = [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=2772306a&api_secret=c80e2d4c&from=12165045273&to=%@&text=%@", number, message];
 
