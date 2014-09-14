@@ -27,8 +27,8 @@ int main(int argc, const char * argv[])
         NSString *number;
         NSString *message;
 
-        number = [NSString stringWithCString:phoneNumber];
-        message = [NSString stringWithCString:textMessage];
+        number = [NSString stringWithCString:phoneNumber encoding:NSUTF8StringEncoding];
+        message = [NSString stringWithCString:textMessage encoding:NSUTF8StringEncoding];
 
         if (([number length] < 9)) {
 
@@ -36,6 +36,7 @@ int main(int argc, const char * argv[])
 
         } else {
 
+            NSLog(@"Number!!! %@", number);
             NSLog(@"Message!! %@", message);
 
             NSString *urlString = [NSString stringWithFormat:@"https://rest.nexmo.com/sms/json?api_key=2772306a&api_secret=c80e2d4c&from=12165045273&to=%@&text=%@", number, message];
